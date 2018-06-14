@@ -15,7 +15,7 @@ var Rochambeau = {
     },
 
     score: {
-        wins: 0,
+        win: 0,
         losses: 0,
         ties: 0
     },
@@ -47,7 +47,7 @@ var Rochambeau = {
 
             ++Rochambeau.score.ties;
             Rochambeau.displayGameResult("tie")
-        } else if (Rochambeau.player.choice == Rochambeau.choices.ROCK && (Rochambeau.computer.choice == Rochambeau.choice.SCISSORS || Rochambeau.computer.choice == Rochambeau.choices.LIZARD)) {
+        } else if (Rochambeau.player.choice == Rochambeau.choices.ROCK && (Rochambeau.computer.choice == Rochambeau.choices.SCISSORS || Rochambeau.computer.choice == Rochambeau.choices.LIZARD)) {
 
             ++Rochambeau.score.wins;
             Rochambeau.displayGameResult("win")
@@ -100,12 +100,12 @@ var Rochambeau = {
         ++Rochambeau.match[val]
     },
 
-    updateScoreBoard: function (winsId, lossesId, tiesId, wonId, lossId) {
-        document.getElementById(winsId).textContent = Rochambeau.score.wims,
-            document.getElementById(lossesId).textContent = Rochambeau.score.losses,
-            document.getElementById(tiesId).textContent = Rochambeau.score.ties,
-            document.getElementById(wonId).textContent = Rochambeau.match.won,
-            document.getElementById(lossId).textContent = Rochambeau.match.loss
+    updateScoreBoard: function (win, losses, ties, won, loss) {
+        document.getElementById(win).textContent = Rochambeau.score.win,
+            document.getElementById(losses).textContent = Rochambeau.score.losses,
+            document.getElementById(ties).textContent = Rochambeau.score.ties,
+            document.getElementById(won).textContent = Rochambeau.match.won,
+            document.getElementById(loss).textContent = Rochambeau.match.loss
     },
 
     updateMatches: function () {
@@ -143,6 +143,6 @@ Rochambeau.playButton.addEventListener('click', () => {
     Rochambeau.playGame()
 });
 
- function Player() {
-        this.choice = null;
-    };
+function Player() {
+    this.choice = null;
+};
